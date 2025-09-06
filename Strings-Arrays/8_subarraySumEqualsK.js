@@ -36,14 +36,12 @@ function subarraySum2(arr, k)
         // If (currentSum - k) exists in map, add its frequency to count
         const complement = currentSum - k;
         if (sumFreq.has(complement)) {
-            console.log(complement);
             count += sumFreq.get(complement);
         }
 
         // Update frequency of current sum
         sumFreq.set(currentSum, (sumFreq.get(currentSum) || 0) + 1);
     }
-    console.log(sumFreq);
     return count;
 }
 
