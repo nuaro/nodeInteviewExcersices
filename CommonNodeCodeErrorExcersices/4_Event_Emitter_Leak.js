@@ -31,7 +31,13 @@ app.get('/event-fixed', (req, res) => {
     res.json({ status: 'listener added safely' });
 });
 
+const port = 3000;
+app.listen(port, () => {
+    console.log(`Server running at http://localhost:${port}`);
+});
+
 // Monitor event listeners
 setInterval(() => {
     console.log('Current listeners:', myEmitter.listenerCount('data'));
 }, 5000);
+

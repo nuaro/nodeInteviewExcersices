@@ -19,7 +19,8 @@ bash
 # Run the test
 node memory-leak.js
 # Load test with Artillery
-artillery quick --count 1000 -n 50 [http://localhost:3000/memory-leak](http://localhost:3000/memory-leak) artillery quick --count 1000 -n 50 [http://localhost:3000/fixed-memory](http://localhost:3000/fixed-memory)
+artillery quick --count 1000 -n 50 [http://localhost:3000/memory-leak](http://localhost:3000/memory-leak) 
+artillery quick --count 1000 -n 50 [http://localhost:3000/fixed-memory](http://localhost:3000/fixed-memory)
 ``` 
 
 ### 2. Event Loop Blocking Test
@@ -27,7 +28,9 @@ Demonstrates blocking vs. non-blocking operations using Worker Threads.
 ```
 bash node event-loop-blocking.js
 # Test endpoints
-curl [http://localhost:3000/blocking](http://localhost:3000/blocking) curl [http://localhost:3000/non-blocking](http://localhost:3000/non-blocking)
+curl [http://localhost:3000/blocking](http://localhost:3000/blocking) 
+curl [http://localhost:3000/non-blocking](http://localhost:3000/non-blocking)
+curl [http://localhost:3000/non-blocking](http://localhost:3000/nonblocking2)
 ``` 
 
 ### 3. CPU Spike Test

@@ -1,6 +1,7 @@
 // Exercise 1: Memory Leak Detection
 const express = require('express');
 const app = express();
+const port = 3000;
 
 // BAD PRACTICE - Potential memory leak
 let requestHistory = [];
@@ -32,6 +33,10 @@ app.get('/fixed-memory', (req, res) => {
     });
 
     res.json({ status: 'request logged safely' });
+});
+
+app.listen(port, () => {
+    console.log(`Server running at http://localhost:${port}`);
 });
 
 // Memory usage monitoring
