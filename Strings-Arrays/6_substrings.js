@@ -26,28 +26,20 @@ function findLargestEqualSubstring(str) {
 
         // If we've seen this difference before
         if (diffMap.has(diff)) {
-            //if (diff === 0) {
-                const length = i - diffMap.get(diff);
-                if (length > maxLength) {
-                    maxLength = length;
-                    startIndex = diffMap.get(diff) + 1;
-                    endIndex = i;
-                }
-            //}
+            const length = i - diffMap.get(diff);
+            if (length > maxLength) {
+                console.log(`${diff} => ${diffMap.get(diff)}`);
+                maxLength = length;
+                startIndex = diffMap.get(diff) + 1;
+                endIndex = i;
+            }
         } else {
             // Store first occurrence of this difference
             diffMap.set(diff, i);
         }
     }
     console.log(diffMap);
-    // Return the result
-    return {
-        substring: str.slice(startIndex, endIndex + 1),
-        length: maxLength,
-        startIndex,
-        endIndex,
-        diffMap
-    };
+    return str.slice(startIndex, endIndex + 1);
 }
 
 function findLargestConsecutiveEqualSubstring(str) {
@@ -78,13 +70,9 @@ function findLargestConsecutiveEqualSubstring(str) {
         }
     }
 
-    return {
-        substring: maxLength > 0 ? str.slice(startIndex, endIndex + 1) : '',
-        length: maxLength,
-        startIndex: maxLength > 0 ? startIndex : -1,
-        endIndex: maxLength > 0 ? endIndex : -1
-    };
+    return maxLength > 0 ? str.slice(startIndex, endIndex + 1) : ''
 }
+
 
 
 // Test cases
@@ -98,14 +86,21 @@ const testCases = [
     '*#####***'
 ];
 
-testCases.forEach(test => {
-    const result = findLargestEqualSubstring(test);
-    console.log(`Input: ${test}`);
-    console.log(`Result: ${JSON.stringify(result, null, 2)}\n`);
-});
-
 // testCases.forEach(test => {
-//     const result = findLargestConsecutiveEqualSubstring(test);
+//     const result = findLargestEqualSubstring(test);
 //     console.log(`Input: ${test}`);
 //     console.log(`Result: ${JSON.stringify(result, null, 2)}\n`);
 // });
+
+// testCases.forEach(test => {
+//     const result = findLargestConsecutiveEqualSubstring(test);
+//     console.log(`Input2: ${test}`);
+//     console.log(`Result2: ${JSON.stringify(result, null, 2)}\n`);
+// });
+
+console.log(findLargestEqualSubstring('*####**'));
+//first past i =0
+// start = 1
+// pound = 0
+// diff = 1
+
