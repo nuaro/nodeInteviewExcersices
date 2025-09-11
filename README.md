@@ -11,50 +11,58 @@ this readme only cover for the errorcode excersices, the other excersices , coul
 - npm install express worker_threads
 
 ## Test Categories & How to Run
+move to the node test
+````
+cd CommonNodeCodeErorExcersices
+
+````
 
 ### 1. Memory Leak Test
 Tests unbounded array growth vs. fixed-size cache implementation.
 ```
 bash
 # Run the test
-node memory-leak.js
+node 1_Memory_Leak_Exercise.js
 # Load test with Artillery
-artillery quick --count 1000 -n 50 [http://localhost:3000/memory-leak](http://localhost:3000/memory-leak) 
-artillery quick --count 1000 -n 50 [http://localhost:3000/fixed-memory](http://localhost:3000/fixed-memory)
+artillery quick --count 1000 -n 50 http://localhost:3000/memory-leak
+artillery quick --count 1000 -n 50 http://localhost:3000/fixed-memory
 ``` 
 
 ### 2. Event Loop Blocking Test
 Demonstrates blocking vs. non-blocking operations using Worker Threads.
 ```
-bash node event-loop-blocking.js
+node 2_Event_Loop_Blocking_Exercise.js
 # Test endpoints
-curl [http://localhost:3000/blocking](http://localhost:3000/blocking) 
-curl [http://localhost:3000/non-blocking](http://localhost:3000/non-blocking)
-curl [http://localhost:3000/non-blocking](http://localhost:3000/nonblocking2)
+curl http://localhost:3000/blocking 
+curl http://localhost:3000/non-blocking
+curl http://localhost:3000/nonblocking2
 ``` 
 
 ### 3. CPU Spike Test
 Shows CPU-intensive operations and their optimization using clustering.
 ```
-bash node cpu-spike.js
+node 3_CPU_Spike.js
 # Run tests
-artillery quick --count 100 -n 20 [http://localhost:3000/cpu-intensive](http://localhost:3000/cpu-intensive) artillery quick --count 100 -n 20 [http://localhost:3000/cpu-optimized](http://localhost:3000/cpu-optimized)
+artillery quick --count 100 -n 20 http://localhost:3000/cpu-intensive
+artillery quick --count 100 -n 20 http://localhost:3000/cpu-optimized
 ``` 
 
 ### 4. Event Emitter Leak Test
 Demonstrates proper event listener management.
 ```
-bash node event-emitter-leak.js
+node 4_Event_Emitter_Leak.js 
 # Test endpoints
-curl [http://localhost:3000/event-leak](http://localhost:3000/event-leak) curl [http://localhost:3000/event-fixed](http://localhost:3000/event-fixed)
+curl http://localhost:3000/event-leak 
+curl http://localhost:3000/event-fixed
 ``` 
 
 ### 5. Stream Memory Usage Test
 Shows efficient file handling using streams.
 ```
-bash node stream-memory.js
+node 5_Stream_Memory_Usage.js
 # Test endpoints
-curl [http://localhost:3000/file-memory](http://localhost:3000/file-memory) curl [http://localhost:3000/file-stream](http://localhost:3000/file-stream)
+curl http://localhost:3000/file-memory 
+curl http://localhost:3000/file-stream
 ``` 
 
 ## What to Look For
