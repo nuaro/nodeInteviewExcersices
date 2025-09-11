@@ -19,7 +19,8 @@ Head.append("test3");
 Head.append("test3");
 const NewNode = new Node("test4");
 Head.appendNodeAtEnd(NewNode);
+Head.append("test5");
 
-Head.printList();
+//Head.printList();
 
 printKToLast(Head, 2);

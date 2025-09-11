@@ -42,7 +42,7 @@ function findLargestEqualSubstring(str) {
     return str.slice(startIndex, endIndex + 1);
 }
 
-function findLargestConsecutiveEqualSubstring(str) {
+function findLargestConsecutiveEqualSubstringBruteForce(str) {
     let maxLength = 0;
     let startIndex = 0;
     let endIndex = -1;
@@ -93,7 +93,7 @@ const testCases = [
 // });
 
 // testCases.forEach(test => {
-//     const result = findLargestConsecutiveEqualSubstring(test);
+//     const result = findLargestConsecutiveEqualSubstringBruteForce(test);
 //     console.log(`Input2: ${test}`);
 //     console.log(`Result2: ${JSON.stringify(result, null, 2)}\n`);
 // });

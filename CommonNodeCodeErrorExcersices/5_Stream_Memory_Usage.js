@@ -16,7 +16,9 @@ app.get('/file-memory', (req, res) => {
 // FIXED VERSION - Using streams
 app.get('/file-stream', (req, res) => {
     const fileStream = fs.createReadStream('large-file.txt', {
-        highWaterMark: 64 * 1024 // 64KB chunks
+        // this is redundant because the 64kb is by default, but is added as example how to do it
+        highWaterMark: 64 * 1024         // 64KB chunks
+
     });
 
     fileStream.pipe(res);

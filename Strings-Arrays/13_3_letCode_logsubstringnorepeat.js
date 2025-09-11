@@ -22,7 +22,7 @@ function checkResp(resp,window)
     {
         return resp;
     }
-    return window.slice();""
+    return window.slice();
 }
 
 console.log(slidingWindow_variableSize('abcabcbb', checkResp, validate).join(""));
